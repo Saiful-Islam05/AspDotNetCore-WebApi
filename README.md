@@ -4,7 +4,7 @@
 ---
 
 ## 📦 Module 1: Foundation (Week 1)
-- [ ] Topic 1 → Web API কি? Project Setup & Folder Structure
+- [x] Topic 1 → Web API কি? Project Setup & Folder Structure
 - [ ] Topic 2 → Controller & Action Method
 - [ ] Topic 3 → Routing (Convention & Attribute)
 - [ ] Topic 4 → HTTP Methods (GET, POST, PUT, DELETE)
@@ -50,6 +50,6 @@
 ## ✅ My Progress
 | Topic | Status | Date |
 |-------|--------|------|
-| Topic 1 - Foundation & Project Setup | ✅ Done | |
+| Topic 1 - Foundation & Project Setup | ✅ Done |19-05-2026 |
 | Topic 2 - Routing | ⏳ চলছে | |
 | Topic 3 - Controllers | ⬜ | |
