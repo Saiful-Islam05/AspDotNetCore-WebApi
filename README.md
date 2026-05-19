@@ -1,5 +1,5 @@
 # ASP.NET Core Web API Learning 🚀
-> বাংলায় শিখছি — Claude AI এর সাথে
+> Learn With — Claude AI
 
 ---
 
