@@ -1,11 +1,11 @@
 # ASP.NET Core Web API Learning 🚀
-> বাংলায় শিখছি — Claude AI এর সাথে
+> Learn With — Claude AI
 
 ---
 
 ## 📦 Module 1: Foundation (Week 1)
 - [x] Topic 1 → Web API কি? Project Setup & Folder Structure
-- [ ] Topic 2 → Controller & Action Method
+- [x] Topic 2 → Controller & Action Method
 - [ ] Topic 3 → Routing (Convention & Attribute)
 - [ ] Topic 4 → HTTP Methods (GET, POST, PUT, DELETE)
 - [ ] Topic 5 → IActionResult & Return Types
@@ -50,6 +50,6 @@
 ## ✅ My Progress
 | Topic | Status | Date |
 |-------|--------|------|
-| Topic 1 - Foundation & Project Setup | ✅ Done |19-05-2026 |
-| Topic 2 - Routing | ⏳ চলছে | |
-| Topic 3 - Controllers | ⬜ | |
+| Topic 1 - Web API কি? Project Setup & Folder Structure | ✅ Done |19-05-2026 |
+| Topic 2 - Controller & Action Method | ✅ Done |31-05-2026 |
+
