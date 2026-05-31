@@ -50,6 +50,6 @@
 ## ✅ My Progress
 | Topic | Status | Date |
 |-------|--------|------|
-| Topic 1 - Foundation & Project Setup | ✅ Done |19-05-2026 |
-| Topic 2 - Routing | ⏳ চলছে | |
-| Topic 3 - Controllers | ⬜ | |
+| Topic 1 - Web API কি? Project Setup & Folder Structure | ✅ Done |19-05-2026 |
+| Topic 2 - Controller & Action Method | ✅ Done |31-05-2026 |
+
