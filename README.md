@@ -5,7 +5,7 @@
 
 ## 📦 Module 1: Foundation (Week 1)
 - [x] Topic 1 → Web API কি? Project Setup & Folder Structure
-- [ ] Topic 2 → Controller & Action Method
+- [x] Topic 2 → Controller & Action Method
 - [ ] Topic 3 → Routing (Convention & Attribute)
 - [ ] Topic 4 → HTTP Methods (GET, POST, PUT, DELETE)
 - [ ] Topic 5 → IActionResult & Return Types
