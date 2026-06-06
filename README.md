@@ -8,7 +8,7 @@
 - [x] Topic 2 → Controller & Action Method
 - [x] Topic 3 → Routing (Convention & Attribute)
 - [x] Topic 4 → HTTP Methods (GET, POST, PUT, DELETE)
-- [ ] Topic 5 → IActionResult & Return Types
+- [x] Topic 5 → IActionResult & Return Types
 
 ## 📦 Module 2: Request & Response (Week 1-2)
 - [ ] Topic 6  → Model & Model Binding
@@ -54,3 +54,4 @@
 | Topic 2 - Controller & Action Method | ✅ Done |31-05-2026 |
 | Topic 3 → Routing (Convention & Attribute) | ✅ Done |01-06-2026 |
 | Topic 4 →  HTTP Methods (GET, POST, PUT, DELETE) | ✅ Done |04-06-2026 |
+| Topic 5 →  IActionResult & Return Types | ✅ Done |06-06-2026 |
