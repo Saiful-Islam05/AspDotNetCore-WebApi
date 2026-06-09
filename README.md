@@ -11,7 +11,7 @@
 - [x] Topic 5 → IActionResult & Return Types
 
 ## 📦 Module 2: Request & Response (Week 1-2)
-- [ ] Topic 6  → Model & Model Binding
+- [x] Topic 6  → Model & Model Binding
 - [ ] Topic 7  → DTOs (Data Transfer Object)
 - [ ] Topic 8  → Validation (Data Annotations)
 - [ ] Topic 9  → Status Codes (200, 201, 400, 404, 500)
@@ -55,3 +55,4 @@
 | Topic 3 → Routing (Convention & Attribute) | ✅ Done |01-06-2026 |
 | Topic 4 →  HTTP Methods (GET, POST, PUT, DELETE) | ✅ Done |04-06-2026 |
 | Topic 5 →  IActionResult & Return Types | ✅ Done |06-06-2026 |
+| Topic 6 →  Model & Model Binding | ✅ Done |09-06-2026 |
