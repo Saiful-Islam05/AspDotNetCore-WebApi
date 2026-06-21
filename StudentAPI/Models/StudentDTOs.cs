@@ -5,12 +5,12 @@
     // Database → Client এ পাঠানোর জন্য
     // শুধু safe fields আছে
     // =====================================================
-    public class StudentDTOs
+    public class StudentResponseDTO
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public int Age { get; set; }
-        public string City { get; set; }
+        public string? City { get; set; }
     }
 
     // =====================================================
@@ -18,11 +18,11 @@
     // Client → Server এ পাঠানোর জন্য (POST)
     // Id নেই কারণ server নিজে দেবে
     // =====================================================
-    public class CreateStudentDTO
+    public class StudentCreateDTO
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public int Age { get; set; }
-        public string City { get; set; }
+        public string? City { get; set; }
     }
 
     // =====================================================
@@ -31,9 +31,9 @@
     // =====================================================
     public class  StudentUpdateDTO
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public int Age { get; set; }
-        public string City { get; set; }
+        public string? City { get; set; }
 
     }
 }

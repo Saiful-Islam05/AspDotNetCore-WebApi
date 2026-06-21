@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StudentAPI.Models;  // Import the Student model (if needed for future use)
+using StudentAPI.Models;
 
 namespace StudentAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class StudentDTOController : Controller
+    public class StudentDTOController : ControllerBase
     {
         // Fake Database - Include sensitive fields
         private static List<Student> _students = new List<Student>
@@ -103,8 +103,67 @@ namespace StudentAPI.Controllers
                 Age = newStudent.Age,
                 City = newStudent.City
             };
-            return CreatedAtAction(nameof(GetByIdWithDTO), new { id = newStudent.Id }, responseDTO); // DTO return করছি, Student নয়
+            return CreatedAtAction(
+                nameof(GetByIdWithDTO),
+                new { id = newStudent.Id },
+                responseDTO // DTO return করছি, Student নয়
+                );
         }
 
+        // =====================================================
+        // ✅ PUT with UpdateDTO
+        // URL: PUT /api/studentdto/1
+        // =====================================================\
+        [HttpPut("{id}")]
+        public ActionResult<StudentResponseDTO> UpdateWithDTO(
+            int id,
+            [FromBody] StudentUpdateDTO updateDTO)
+        {
+            var student = _students.FirstOrDefault(s => s.Id == id);
+
+            if(student == null)
+            {
+                return NotFound(new { Message = $"ID {id} Not Found" });
+            }
+
+            // From DTO Update the Student
+            student.Name = updateDTO.Name;
+            student.Age = updateDTO.Age;
+            student.City = updateDTO.City;
+            // Password, BankAccount not Changes.
+
+            // Response DTO বানাও
+            var responseDTO = new StudentResponseDTO
+            {
+                Id = student.Id,
+                Name = student.Name,
+                Age = student.Age,
+                City = student.City
+
+            };
+
+            return Ok(responseDTO );
+
+        }
+
+        // =====================================================
+        // ✅ DELETE
+        // URL: DELETE /api/studentdto/1
+        // =====================================================
+
+        [HttpDelete("{id}")]
+        public IActionResult DeleteWithDTO( int id )
+        {
+            var student = _students.FirstOrDefault(s => s.Id == id);
+
+            if( student == null ) 
+            {
+                return NotFound(new { Message = $"ID {id} not Found" });
+            }
+
+            _students.Remove(student);
+
+            return Ok(new { Message = $"'{student.Name}' deleted successfully!" });
+        }
     }
 }
