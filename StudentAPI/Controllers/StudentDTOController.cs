@@ -72,16 +72,20 @@ namespace StudentAPI.Controllers
             return Ok(dto);
         }
 
-
         // =====================================================
-        // ✅ POST with CreateDTO
-        // Client শুধু Name, Age, City পাঠাবে
-        // Id server নিজে দেবে
+        // ✅ POST with Validation
         // URL: POST /api/studentdto
         // =====================================================
         [HttpPost]
         public ActionResult<StudentResponseDTO> CreateWithDTO([FromBody] StudentCreateDTO createDTO)
         {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);  // 400 + error Details
+            }
+
+
+
             // DTO → Student (Database Model) এ convert করো
             var newStudent = new Student
             {
@@ -119,6 +123,15 @@ namespace StudentAPI.Controllers
             int id,
             [FromBody] StudentUpdateDTO updateDTO)
         {
+            // Validation Check
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+
+
+
             var student = _students.FirstOrDefault(s => s.Id == id);
 
             if(student == null)

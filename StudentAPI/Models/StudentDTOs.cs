@@ -1,9 +1,9 @@
-﻿namespace StudentAPI.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace StudentAPI.Models
 {
     // =====================================================
-    // ✅ DTO 1 — Response DTO
-    // Database → Client এ পাঠানোর জন্য
-    // শুধু safe fields আছে
+    // ✅ Response DTO — GET এ use হবে (validation নেই)
     // =====================================================
     public class StudentResponseDTO
     {
@@ -14,25 +14,45 @@
     }
 
     // =====================================================
-    // ✅ DTO 2 — Create DTO
-    // Client → Server এ পাঠানোর জন্য (POST)
-    // Id নেই কারণ server নিজে দেবে
+    // ✅ Create DTO — POST এ use হবে (validation আছে)
     // =====================================================
+
     public class StudentCreateDTO
     {
+        [Required(ErrorMessage ="Name have to give")]
+        [StringLength(50,MinimumLength =2, ErrorMessage ="Name should 2 to 50 character")]
         public string? Name { get; set; }
+
+        [Range(1, 100, ErrorMessage = "Age should have from 1 to 100 years")]
         public int Age { get; set; }
+
+        [Required(ErrorMessage = "Give City name!")]
         public string? City { get; set; }
+
+        [EmailAddress(ErrorMessage = "Give valid email address")]
+        public string? EmailAddress { get; set; }
+
+
+        [Phone(ErrorMessage = "Give right phone number")]
+        public string? Phone { get; set; }
+
+
     }
 
     // =====================================================
-    // ✅ DTO 3 — Update DTO
-    // Client → Server এ পাঠানোর জন্য (PUT)
+    // ✅ Update DTO — PUT এ use হবে (validation আছে)
     // =====================================================
+
     public class  StudentUpdateDTO
     {
-        public string? Name { get; set; }
+       [Required(ErrorMessage ="Name have to give!")]
+       [StringLength(50,MinimumLength =2,ErrorMessage ="Name should from 2 to 50 character!")]
+       public string? Name { get; set; }
+
+        [Range(1, 100, ErrorMessage = "Age should from 1 to 100 years!")]
         public int Age { get; set; }
+
+        [Required(ErrorMessage = "City name have to give!")]
         public string? City { get; set; }
 
     }
