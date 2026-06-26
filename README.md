@@ -13,7 +13,7 @@
 ## 📦 Module 2: Request & Response (Week 1-2)
 - [x] Topic 6  → Model & Model Binding
 - [x] Topic 7  → DTOs (Data Transfer Object)
-- [ ] Topic 8  → Validation (Data Annotations)
+- [x] Topic 8  → Validation (Data Annotations)
 - [ ] Topic 9  → Status Codes (200, 201, 400, 404, 500)
 
 ## 📦 Module 3: Database with EF Core (Week 2-3)
@@ -57,3 +57,4 @@
 | Topic 5 →  IActionResult & Return Types | ✅ Done |06-06-2026 |
 | Topic 6 →  Model & Model Binding | ✅ Done |09-06-2026 |
 | Topic 7  → DTOs (Data Transfer Object) | ✅ Done |21-06-2026 |
+| Topic 8  → Validation (Data Annotations) | ✅ Done |24-06-2026 |
