@@ -154,5 +154,138 @@ namespace StudentAPI.Controllers
                 Message = "✅ Welcome! তুমি authorized।"
             });
         }
+
+        // =====================================================
+        // ❌ 403 — Forbidden
+        // Login আছে কিন্তু Permission নেই
+        // URL: GET /api/statuscode/403-demo
+        // =====================================================
+
+        [HttpGet("403-demo")]
+        public IActionResult Demo403([FromHeader(Name ="X-User-Role")] string? role)
+        {
+            if(string.IsNullOrEmpty(role))
+            {
+                return BadRequest(new { Message = "Header a X-User-Role Daw!" });
+            }
+
+            if(role.ToLower()!="admin")
+            {
+                return StatusCode(403, new
+                {
+                    StatusCode = 403,
+                    Message = "Forbidden! You have no permission",
+                    YourRole = role,
+                    Required = "Admin"
+                });
+            }
+
+            return Ok(new
+            {
+                StatusCode = 200,
+                Message = "Welcome to Admin area",
+                SecretData = "Only admin can see it"
+            });
+        }
+
+
+        // =====================================================
+        // ❌ 404 — Not Found
+        // খুঁজে পাওয়া যায়নি
+        // URL: GET /api/statuscode/404-demo/99
+        // =====================================================
+
+        [HttpGet("404-demo/{id}")]
+        public IActionResult Demo404(int id)
+        {
+            var student = _students.FirstOrDefault(s => s.Id == id);
+
+            if(student==null)
+            {
+                return NotFound(new
+                {
+                    StatusCode = 404,
+                    Message = $"X Not Found! Nothing of student {id} ",
+                    SearchedId = id,
+                    Hint = "Try by 1,2,or 3"
+                });
+            }
+
+            return Ok(new
+            {
+                StatusCode = 200,
+                Message = "Student Found",
+                Data = student
+            });
+        }
+
+
+        // =====================================================
+        // ❌ 500 — Internal Server Error
+        // Server এ সমস্যা হয়েছে
+        // URL: GET /api/statuscode/500-demo
+        // =====================================================
+
+        [HttpGet("500-demo")]
+        public IActionResult Demo500([FromQuery] bool triggerError = false)
+        {
+            try
+            { 
+                if(triggerError)
+                {
+                    throw new Exception("Database connection Failed!");
+                }
+
+                return Ok(new
+                {
+                    StatusCode = 200,
+                    Message = "Server is Ok"
+                });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    StatusCode = 500,
+                    Message = "Server Error! Something is wrong",
+                    ErrorDetails = ex.Message
+                });
+            }
+        }
+
+
+        // =====================================================
+        // 🔵 সব Status Code একসাথে দেখো
+        // URL: GET /api/statuscode/all-codes
+        // =====================================================
+
+        [HttpGet("all-codes")]
+        public IActionResult AllStatusCodes()
+        {
+            return Ok(new
+            {
+                Sucess = new
+                {
+                    _200 = "Ok - Success! Data founded",
+                    _201 = "Created- Something new Created",
+                    _204 = "No Content - Succeess but no data"
+                },
+
+                ClientError = new
+                {
+                    _400 = "Bad Request - Wrong data sent",
+                    _401 = "Unauthorized - Do Login ",
+                    _403 = "Forbidden - No Permission",
+                    _404 = "Not Foun - Didn't find"
+                },
+
+                ServerError = new
+                {
+                    _500 = "Internal Server Error - Problem is in Server",
+                    _503 = "Service Unavailable - Server is now Busy"
+                }
+
+            });
+        }
     }
 }
