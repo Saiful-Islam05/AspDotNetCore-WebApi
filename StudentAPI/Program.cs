@@ -1,3 +1,6 @@
+﻿
+using Microsoft.EntityFrameworkCore;
+using StudentAPI.Data;
 
 namespace StudentAPI
 {
@@ -6,6 +9,14 @@ namespace StudentAPI
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+
+            // ✅ EF Core + SQL Server Register করছি
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(
+                    builder.Configuration.GetConnectionString("DefaultConnection")
+                )
+            );
 
             // Add services to the container.
 

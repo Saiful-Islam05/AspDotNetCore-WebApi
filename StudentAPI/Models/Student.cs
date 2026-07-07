@@ -1,27 +1,39 @@
 ﻿using System.Security.Principal;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudentAPI.Models
 {
+    // এই class টা Database এর "Students" Table হবে
+    [Table("Students")]  // Table এর নাম define করছি
     public class Student
     {
+
+        // ✅ Primary Key — Auto Increment
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-
-        [Required(ErrorMessage ="Name have to give must!")]
-        [StringLength(50,MinimumLength =2,ErrorMessage ="Name should from 2 to 50 character!")]
+        // ✅ Required + Max 100 character
+        [Required]
+        [MaxLength(100)]
         public string? Name { get; set; }
 
-
-        [Range(1,100,ErrorMessage ="Age should from 1 to 100 years!")]
+        // ✅ 1 থেকে 100 এর মধ্যে
+        [Range(1, 100)]
         public int Age { get; set; }
 
-
-        [Required(ErrorMessage ="City name have to given!")]
+        // ✅ Required + Max 100 character
+        [Required]
+        [MaxLength(100)]
         public string? City { get; set; }
 
-        // Sensitive fields- we dont' give client
-        public string Password { get; set; } = "secret123";
-        public string BankAccount { get; set; } = "BD123456789";
+        // Sensitive fields — Client দেখবে না
+        [MaxLength(200)]
+        public string? Password { get; set; }
+
+        [MaxLength(50)]
+        public string? BankAccount { get; set; }
     }
+        
 }
