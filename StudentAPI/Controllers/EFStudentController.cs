@@ -78,5 +78,52 @@ namespace StudentAPI.Controllers
                 newStudent
             );
         }
+
+        // =====================================================
+        // ✅ PUT — Database তে Student Update করো
+        // URL: PUT /api/efstudent/1
+        // =====================================================
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateStudent(
+            int id,
+            [FromBody] StudentUpdateDTO updateDTO)
+        {
+            // ✅ ID দিয়ে Database থেকে খোঁজো
+            var student = await _context.Students.FindAsync(id);
+            if (student == null)
+                return NotFound(new { Message = $"ID {id} পাওয়া যায়নি" });
+            // ✅ Update করো
+            student.Name = updateDTO.Name;
+            student.Age = updateDTO.Age;
+            student.City = updateDTO.City;
+            // ✅ Save করো
+            await _context.SaveChangesAsync();
+            return Ok(student);
+        }
+
+
+
+
+        // =====================================================
+        // ✅ DELETE — Database থেকে Student মুছে ফেলো
+        // URL: DELETE /api/efstudent/1
+        // =====================================================
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteStudent(int id)
+        {
+            var student = await _context.Students.FindAsync(id);
+
+            if(student == null)
+            {
+                return NotFound(new { Message = $"ID {id} Not Found" });
+            }
+
+            //✅ Database থেকে মুছে ফেলো
+            _context.Students.Remove(student);
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new { Message = $"ID {id} Successfully Deleted" });
+        }
     }
 }
