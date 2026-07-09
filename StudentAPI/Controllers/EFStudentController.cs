@@ -62,6 +62,9 @@ namespace StudentAPI.Controllers
                 Name = createDTO.Name,
                 Age = createDTO.Age,
                 City = createDTO.City,
+                Email = createDTO.Email,      // নতুন ✅
+                Phone = createDTO.Phone,      // নতুন ✅
+                CreatedAt = DateTime.Now,         // নতুন ✅
                 Password = "defaultPass",
                 BankAccount = "BD000"
             };
@@ -72,10 +75,24 @@ namespace StudentAPI.Controllers
             // ✅ Save করো — এটা ছাড়া DB তে যাবে না!
             await _context.SaveChangesAsync();
 
+
+
+            // Response DTO বানাও
+            var responseDTO = new StudentResponseDTO
+            {
+                Id = newStudent.Id,
+                Name = newStudent.Name,
+                Age = newStudent.Age,
+                City = newStudent.City,
+                Email = newStudent.Email,       // নতুন ✅
+                Phone = newStudent.Phone,       // নতুন ✅
+                CreatedAt = newStudent.CreatedAt    // নতুন ✅
+            };
+
             return CreatedAtAction(
                 nameof(GetStudentById),
                 new { id = newStudent.Id },
-                newStudent
+                responseDTO
             );
         }
 
@@ -96,9 +113,24 @@ namespace StudentAPI.Controllers
             student.Name = updateDTO.Name;
             student.Age = updateDTO.Age;
             student.City = updateDTO.City;
+            student.Email = updateDTO.Email;        // নতুন ✅
+            student.Phone = updateDTO.Phone;        // নতুন ✅
             // ✅ Save করো
             await _context.SaveChangesAsync();
-            return Ok(student);
+
+
+            var responseDTO = new StudentResponseDTO
+            {
+                Id = student.Id,
+                Name = student.Name,
+                Age = student.Age,
+                City = student.City,
+                Email = student.Email,          // নতুন ✅
+                Phone = student.Phone,          // নতুন ✅
+                CreatedAt = student.CreatedAt       // নতুন ✅
+            };
+
+            return Ok(responseDTO);
         }
 
 

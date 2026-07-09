@@ -11,6 +11,9 @@ namespace StudentAPI.Models
         public string? Name { get; set; }
         public int Age { get; set; }
         public string? City { get; set; }
+        public string? Email { get; set; } //New
+        public string? Phone { get; set; } //New
+        public DateTime CreatedAt { get; set; } //New
     }
 
     // =====================================================
@@ -35,8 +38,7 @@ namespace StudentAPI.Models
 
         [Phone(ErrorMessage = "Give right phone number")]
         public string? Phone { get; set; }
-
-
+        public string Email { get; internal set; }
     }
 
     // =====================================================
@@ -54,6 +56,12 @@ namespace StudentAPI.Models
 
         [Required(ErrorMessage = "City name have to give!")]
         public string? City { get; set; }
+
+        [EmailAddress(ErrorMessage = "সঠিক Email দাও!")]
+        public string? Email { get; set; }      // নতুন ✅
+
+        [Phone(ErrorMessage = "সঠিক Phone দাও!")]
+        public string? Phone { get; set; }      // নতুন ✅
 
     }
 }

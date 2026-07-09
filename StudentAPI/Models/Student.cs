@@ -34,6 +34,17 @@ namespace StudentAPI.Models
 
         [MaxLength(50)]
         public string? BankAccount { get; set; }
+
+        // ✅ নতুন field যোগ করলাম — Migration দরকার হবে
+        [MaxLength(150)]
+        [EmailAddress]
+        public string? Email { get; set; }
+
+        [MaxLength(20)]
+        [Phone]
+        public string? Phone { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
-        
+
 }
