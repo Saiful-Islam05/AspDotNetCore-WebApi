@@ -19,7 +19,7 @@
 ## 📦 Module 3: Database with EF Core (Week 2-3)
 - [x] Topic 10 → EF Core Setup & DbContext
 - [x] Topic 11 → Code First Migration
-- [ ] Topic 12 → Repository Pattern (Basic)
+- [x] Topic 12 → Repository Pattern (Basic)
 - [ ] Topic 13 → CRUD Operation with Database
 - [ ] Topic 14 → LINQ with EF Core
 
@@ -61,3 +61,4 @@
 | Topic 9  → Status Codes (200, 201, 400, 404, 500) | ✅ Done |01-07-2026 |
 | Topic 10 → EF Core Setup & DbContext | ✅ Done |08-07-2026 |
 | Topic 11 → Code First Migration | ✅ Done |09-07-2026 |
+| Topic 12 → Repository Pattern (Basic) | ✅ Done |14-07-2026 |
