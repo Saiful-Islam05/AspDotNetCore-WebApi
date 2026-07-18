@@ -64,4 +64,54 @@ namespace StudentAPI.Models
         public string? Phone { get; set; }      // নতুন ✅
 
     }
+
+
+
+    // =====================================================
+    // Course DTOs
+    // =====================================================
+
+    // ✅ Response DTO — GET এ use হবে (validation নেই)
+    public class  CourseResponseDTO
+    {
+        public int Id { get; set; }
+        public string? Title { get; set; }
+        public string? Description { get; set; }
+        public int CreditHours { get; set; }
+        public DateTime CreatedAt { get; set; }
+    }
+
+    // ✅ Create DTO — POST এ use হবে (validation আছে)
+    public class CourseCreateDTO
+    {
+        [Required(ErrorMessage = "Title is required.")]
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "Title should be between 2 and 100 characters.")]
+        public string? Title { get; set; }
+
+
+        [StringLength(500, ErrorMessage = "Description should not exceed 500 characters.")]
+        public string? Description { get; set; }
+
+
+        [Range(1, 24, ErrorMessage = "Credit hours should be between 1 and 24.")]
+        public int CreditHours { get; set; }
+    }
+
+
+    // ✅ Update DTO — PUT এ use হবে (validation আছে)
+
+    public class CourseUpdateDTO
+    {
+        [Required(ErrorMessage = "Title is required.")]
+        [StringLength(100, MinimumLength = 2, ErrorMessage = "Title should be between 2 and 100 characters.")]
+        public string? Title { get; set; }
+
+
+        [StringLength(500, ErrorMessage = "Description should not exceed 500 characters.")]
+        public string? Description { get; set; }
+
+
+        [Range(1, 24, ErrorMessage = "Credit hours should be between 1 and 24.")]
+        public int CreditHours { get; set; }
+    }
 }

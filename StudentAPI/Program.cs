@@ -1,6 +1,6 @@
-﻿
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using StudentAPI.Data;
+using StudentAPI.Repositories;
 
 namespace StudentAPI
 {
@@ -17,6 +17,12 @@ namespace StudentAPI
                     builder.Configuration.GetConnectionString("DefaultConnection")
                 )
             );
+
+            // ✅ Repository Register করো
+            // IStudentRepository চাইলে StudentRepository দেবে
+            builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+
+            builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 
             // Add services to the container.
 

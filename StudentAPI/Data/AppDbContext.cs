@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StudentAPI.Models;
+using System.Security.Principal;
 
 namespace StudentAPI.Data
 {
@@ -14,7 +15,9 @@ namespace StudentAPI.Data
             // "Students" table এর সাথে কথা বলার জন্য
             public DbSet<Student> Students { get; set; }
 
-            protected override void OnModelCreating(ModelBuilder modelBuilder)
+            public DbSet<Course> Courses { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
             {
                 base.OnModelCreating(modelBuilder);
 
@@ -47,6 +50,29 @@ namespace StudentAPI.Data
                         Password = "pass789",
                         BankAccount = "BD333"
                     });
-            }
+
+            // Seed Data for Courses
+            modelBuilder.Entity<Course>().HasData(
+
+                new Course
+                {
+                    Id = 1,
+                    Title = "C# Programming",
+                    Description = "This is a C# programming course."
+                },
+                new Course
+                {
+                    Id = 2,
+                    Title = "Asp Dot net Web API",
+                    Description = "This is an ASP.NET Web API course."
+                },
+                new Course
+                {
+                    Id = 3,
+                    Title = "SQL Server",
+                    Description = "This is a SQL Server course."
+                }
+                );
         }
+    }
 }
