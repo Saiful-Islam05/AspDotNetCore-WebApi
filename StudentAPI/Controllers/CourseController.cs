@@ -97,11 +97,99 @@ namespace StudentAPI.Controllers
         }
 
 
-        
+
         // =====================================================
         // ✅ POST — নতুন Course তৈরি
         // URL: POST /api/course
         // =====================================================
+        [HttpPost]
+        public async Task<ActionResult<CourseResponseDTO>> CreateCourse(
+            [FromBody] CourseCreateDTO createDto)
+        {
+            // DTO → Course convert
+            var course = new Course
+            {
+                Title = createDto.Title,
+                Description = createDto.Description,
+                CreditHours = createDto.CreditHours,
+                CreatedAt = DateTime.Now
+            };
 
+            var created = await _repository.CreateAsync(course);
+
+            var response = new CourseResponseDTO
+            {
+                Id = created.Id,
+                Title = created.Title,
+                Description = created.Description,
+                CreditHours = created.CreditHours,
+                CreatedAt = created.CreatedAt
+            };
+
+            return CreatedAtAction(nameof(GetCourseById), new { id = created.Id }, response);
+        }
+
+
+
+
+
+
+        // =====================================================
+        // ✅ PUT — Course Update করো
+        // URL: PUT /api/course/1
+        // =====================================================
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<CourseResponseDTO>> UpdateCourse(int id, [FromBody] CourseUpdateDTO updateDto)
+        {
+            var course = new Course
+            {
+                Title = updateDto.Title,
+                Description = updateDto.Description,
+                CreditHours = updateDto.CreditHours
+            };
+            if (course == null)
+            {
+                return NotFound(new { Message = $"ID {id} Course not found" });
+            }
+
+
+            var updated = await _repository.UpdateAsync(id, course);
+
+            if (updated == null)
+            {
+                return NotFound(new { Message = $"ID {id} Course not found" });
+            }
+
+            var response = new CourseResponseDTO
+            {
+                Id = updated.Id,
+                Title = updated.Title,
+                Description = updated.Description,
+                CreditHours = updated.CreditHours,
+                CreatedAt = updated.CreatedAt
+            };
+
+            return Ok(response);
+        }
+
+
+
+
+        // =====================================================
+        // ✅ DELETE — Course মুছে ফেলো
+        // URL: DELETE /api/course/1
+        // =====================================================
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteCourse(int id)
+        {
+            var result = await _repository.DeleteAsync(id);
+            if (!result)
+            {
+                return NotFound(new { Message = $"ID {id} Course not found" });
+            }
+            return Ok(new { Message = $"ID {id} Course deleted successfully" });
+        }
     }
 }
