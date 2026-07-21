@@ -20,7 +20,7 @@
 - [x] Topic 10 → EF Core Setup & DbContext
 - [x] Topic 11 → Code First Migration
 - [x] Topic 12 → Repository Pattern (Basic)
-- [ ] Topic 13 → CRUD Operation with Database
+- [x] Topic 13 → CRUD Operation with Database
 - [ ] Topic 14 → LINQ with EF Core
 
 ## 📦 Module 4: Real Features (Week 3-4)
@@ -62,3 +62,4 @@
 | Topic 10 → EF Core Setup & DbContext | ✅ Done |08-07-2026 |
 | Topic 11 → Code First Migration | ✅ Done |09-07-2026 |
 | Topic 12 → Repository Pattern (Basic) | ✅ Done |14-07-2026 |
+| Topic 13 → CRUD Operation with Database | ✅ Done |21-07-2026 |
