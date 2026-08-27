@@ -26,7 +26,7 @@
 ## 📦 Module 4: Real Features (Week 3-4)
 - [x] Topic 15 → Dependency Injection (DI)
 - [x] Topic 16 → Middleware (Basic)
-- [ ] Topic 17 → JWT Authentication & Authorization
+- [x] Topic 17 → JWT Authentication & Authorization
 - [ ] Topic 18 → Role Based Authorization
 - [ ] Topic 19 → CORS Setup
 
@@ -66,4 +66,4 @@
 | Topic 14 → LINQ with EF Core | ✅ Done |25-08-2026 |
 | Topic 15 → Dependency Injection (DI) | ✅ Done |26-08-2026 |
 | Topic 16 → Middleware (Basic) | ✅ Done |26-08-2026 |
-
+| Topic 17 → JWT Authentication & Authorization | ✅ Done |27-08-2026 |
