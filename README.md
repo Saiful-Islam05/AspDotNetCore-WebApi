@@ -27,7 +27,7 @@
 - [x] Topic 15 → Dependency Injection (DI)
 - [x] Topic 16 → Middleware (Basic)
 - [x] Topic 17 → JWT Authentication & Authorization
-- [ ] Topic 18 → Role Based Authorization
+- [x] Topic 18 → Role Based Authorization
 - [ ] Topic 19 → CORS Setup
 
 ## 📦 Module 5: Professional Skills (Week 4-5)
@@ -67,3 +67,4 @@
 | Topic 15 → Dependency Injection (DI) | ✅ Done |26-08-2026 |
 | Topic 16 → Middleware (Basic) | ✅ Done |26-08-2026 |
 | Topic 17 → JWT Authentication & Authorization | ✅ Done |27-08-2026 |
+| Topic 18 → Role Based Authorization | ✅ Done |31-08-2026 |
