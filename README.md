@@ -28,10 +28,10 @@
 - [x] Topic 16 → Middleware (Basic)
 - [x] Topic 17 → JWT Authentication & Authorization
 - [x] Topic 18 → Role Based Authorization
-- [ ] Topic 19 → CORS Setup
+- [x] Topic 19 → CORS Setup
 
 ## 📦 Module 5: Professional Skills (Week 4-5)
-- [ ] Topic 20 → Postman দিয়ে API Test
+- [x] Topic 20 → Postman দিয়ে API Test
 - [ ] Topic 21 → Global Exception Handling
 - [ ] Topic 22 → Swagger / API Documentation
 - [ ] Topic 23 → Pagination & Filtering
@@ -68,3 +68,6 @@
 | Topic 16 → Middleware (Basic) | ✅ Done |26-08-2026 |
 | Topic 17 → JWT Authentication & Authorization | ✅ Done |27-08-2026 |
 | Topic 18 → Role Based Authorization | ✅ Done |31-08-2026 |
+| Topic 19 → CORS Setup | ✅ Done |01-08-2026 |
+| Topic 20 → Postman দিয়ে API Test | ✅ Done |01-08-2026 |
+
